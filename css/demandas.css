@@ -1,0 +1,16 @@
+        /* Foco ultra-visível para acessibilidade motora e visual */
+        /* :focus {
+            outline: 4px solid #ffc107 !important;
+            outline-offset: 2px;
+        } */
+        .card-demanda {
+            transition: transform 0.2s;
+            border-left: 6px solid #ccc;
+        }
+        .card-demanda:hover {
+            transform: scale(1.01);
+        }
+        /* Cores de status com alto contraste */
+        .status-concluido { border-left-color: #198754; }
+        .status-analise { border-left-color: #ffc107; }
+        .status-pendente { border-left-color: #dc3545; }

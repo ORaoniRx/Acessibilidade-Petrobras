@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Demandas - Portal Acessível</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/demandas.css">
+</head>
+<body class="bg-light">
+
+    <a class="visually-hidden-focusable p-3 bg-dark text-white position-absolute" href="#main-content">Ir para conteúdo principal</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="banner" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html" onclick="speak('Voltando para página inicial')">
+                <i class="bi bi-building me-2"></i>Petrobras
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="demandas.html">
+                            <i class="bi bi-exclamation-triangle me-1"></i> Demandas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="trading.html" onclick="speak('Navegando para Trading')">
+                            <i class="bi bi-people me-1"></i> Trading
+                        </a>
+                    </li>
+                </ul>
+
+                                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" 
+                           data-bs-toggle="dropdown" aria-expanded="false"
+                           aria-label="Menu do usuário João Silva"
+                           onclick="speak('Menu do usuário')">
+                            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>
+                            João Silva
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container my-5" tabindex="-1">
+        <header class="row mb-5 text-center text-md-start align-items-center">
+            <div class="col-md-8">
+                <h1 class="display-5 fw-bold text-dark">Status das Demandas</h1>
+                <p class="lead text-muted">Acompanhe em tempo real o andamento das solicitações enviadas pela empresa.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <button class="btn btn-success btn-lg shadow" onclick="speak('Redirecionando para nova reclamação'); window.location.href='home.html'">
+                    <i class="bi bi-plus-circle me-2"></i>Nova Demanda
+                </button>
+            </div>
+        </header>
+
+        <nav class="mb-4" aria-label="Filtrar demandas">
+            <div class="btn-group w-100 shadow-sm" role="group">
+                <button type="button" class="btn btn-white border" onclick="speak('Mostrando todas as demandas')">Todas</button>
+                <button type="button" class="btn btn-white border text-danger fw-bold" onclick="speak('Filtrando por Pendentes')">Pendentes (1)</button>
+                <button type="button" class="btn btn-white border text-warning fw-bold" onclick="speak('Filtrando por Em Análise')">Em Análise (2)</button>
+                <button type="button" class="btn btn-white border text-success fw-bold" onclick="speak('Filtrando por Concluídas')">Concluídas (1)</button>
+            </div>
+        </nav>
+
+        <div class="row g-4" role="list">
+            
+            <div class="col-12" role="listitem">
+                <div class="card card-demanda status-analise shadow-sm">
+                    <div class="card-body d-md-flex justify-content-between align-items-center p-4">
+                        <div>
+                            <span class="badge bg-warning text-dark mb-2" aria-label="Status: Em Análise">EM ANÁLISE</span>
+                            <h3 class="h5 fw-bold mb-1">Ajuste no sistema de ponto eletrônico</h3>
+                            <p class="text-muted mb-0 small"><i class="bi bi-calendar3 me-2"></i>Criado em: 12/04/2024 • Protocolo: #88291</p>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn btn-outline-dark" onclick="speak('Ver detalhes da demanda de sistema de ponto')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12" role="listitem">
+                <div class="card card-demanda status-concluido shadow-sm">
+                    <div class="card-body d-md-flex justify-content-between align-items-center p-4">
+                        <div>
+                            <span class="badge bg-success mb-2" aria-label="Status: Concluído">CONCLUÍDO</span>
+                            <h3 class="h5 fw-bold mb-1">Solicitação de novo crachá - Unidade Centro</h3>
+                            <p class="text-muted mb-0 small"><i class="bi bi-calendar3 me-2"></i>Criado em: 05/04/2024 • Protocolo: #88150</p>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn btn-outline-dark" onclick="speak('Ver detalhes da demanda de crachá')">Ver Histórico</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12" role="listitem">
+                <div class="card card-demanda status-pendente shadow-sm">
+                    <div class="card-body d-md-flex justify-content-between align-items-center p-4">
+                        <div>
+                            <span class="badge bg-danger mb-2" aria-label="Status: Pendente">PENDENTE DE INFORMAÇÃO</span>
+                            <h3 class="h5 fw-bold mb-1">Reembolso de despesas de viagem - Março</h3>
+                            <p class="text-secondary mb-2"><i class="bi bi-exclamation-circle me-1"></i> Necessário anexar nota fiscal faltante.</p>
+                            <p class="text-muted mb-0 small"><i class="bi bi-calendar3 me-2"></i>Criado em: 14/04/2024 • Protocolo: #88302</p>
+                        </div>
+                        <div class="mt-3 mt-md-0">
+                            <button class="btn btn-danger" onclick="speak('Resolver pendência da viagem')">Resolver Agora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="opacity-75 mb-0">Portal de Demandas Petrobras • Sistema Acessível</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/demandas/talkback.js"></script>
+</body>
+</html>

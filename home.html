@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Atendimento - Acessível</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- ARIA Labels e Acessibilidade -->
+    <meta name="description" content="Portal acessível para demandas e RH com suporte completo a leitores de tela">
+    
+    <!-- Web Speech API para TalkBack -->
+    <script src="./js/home/talkback.js"></script>
+    <script src="./js/home/form.js"></script>
+
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bg-light">
+    <!-- Skip to main content -->
+    <a class="visually-hidden-focusable p-3" href="#main-content" tabindex="0" 
+       onclick="speak('Pulando para conteúdo principal')">Ir para conteúdo principal</a>
+
+    <!-- Navbar Acessível -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="banner" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" aria-label="Página inicial do Portal de Atendimento">
+                <i class="bi bi-building me-2" aria-hidden="true"></i>Petrobras
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação"
+                    onclick="speak('Abrindo menu de navegação')">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="demandas.html" aria-label="Abrir aba de Demandas" 
+                           onclick="speak('Navegando para Demandas')">
+                            <i class="bi bi-exclamation-triangle me-1" aria-hidden="true"></i>
+                            Demandas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rh" aria-label="Abrir aba de Trading" 
+                           onclick="speak('Navegando para Trading')">
+                            <i class="bi bi-people me-1" aria-hidden="true"></i>
+                            Trading
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" 
+                           data-bs-toggle="dropdown" aria-expanded="false"
+                           aria-label="Menu do usuário João Silva"
+                           onclick="speak('Menu do usuário')">
+                            <i class="bi bi-person-circle me-1" aria-hidden="true"></i>
+                            João Silva
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container my-5" tabindex="-1" role="main" aria-label="Conteúdo principal">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <!-- Hero Section Acessível -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bold text-dark mb-4" 
+                        aria-describedby="hero-description"
+                        onclick="speak('Bem-vindo ao Portal de Atendimento. Registre sua reclamação ou demanda aqui.')">
+                        <i class="bi bi-chat text-success" aria-hidden="true"></i>
+                        Atendimento RH Petrobras
+                    </h1>
+                    <p id="hero-description" class="lead text-muted fs-4">
+                        Registre sua <strong>reclamação</strong>, demanda ou solicitação de forma 
+                        <strong>rápida e acessível</strong>.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4">
+                        <button class="btn btn-success btn-lg px-4" onclick="speak('Foco na área de reclamação')">
+                            <i class="bi bi-chat-dots me-2" aria-hidden="true"></i>
+                            Reclamação
+                        </button>
+                        <button class="btn btn-outline-warning btn-lg px-4" onclick="speak('Abrindo histórico')">
+                            <i class="bi bi-clock-history me-2" aria-hidden="true"></i>
+                            Meu Histórico
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Formulário de Reclamação TOTALMENTE Acessível -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-dark text-center py-4">
+                        <h2 class="mb-0 fw-bold">
+                            <i class="bi bi-pencil-square me-2" aria-hidden="true"></i>
+                            Registrar Reclamação
+                        </h2>
+                        <p class="mb-0 mt-2 opacity-75">Preencha os campos abaixo. Todos os campos são obrigatórios.</p>
+                    </div>
+                    
+                    <div class="card-body p-4 p-lg-5">
+                        <form id="complaintForm" novalidate>
+                            <!-- Assunto -->
+                            <div class="mb-4">
+                                <label for="subject" class="form-label fw-semibold">
+                                    <i class="bi bi-tag text-success me-2" aria-hidden="true"></i>
+                                    Assunto da Reclamação <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="subject" 
+                                       required maxlength="100" aria-describedby="subjectHelp"
+                                       aria-label="Digite o assunto da reclamação em até 100 caracteres"
+                                       placeholder="Ex: Problema com sistema de ponto">
+                                <div id="subjectHelp" class="form-text">Máximo 100 caracteres</div>
+                            </div>
+
+                            <!-- Departamento -->
+                            <div class="mb-4">
+                                <label for="department" class="form-label fw-semibold">
+                                    <i class="bi bi-building-gear text-success me-2" aria-hidden="true"></i>
+                                    Departamento Relacionado <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select form-select-lg" id="department" required 
+                                        aria-label="Selecione o departamento relacionado">
+                                    <option value="">Selecione...</option>
+                                    <option value="ti">TI - Tecnologia</option>
+                                    <option value="rh">RH - Recursos Humanos</option>
+                                    <option value="financeiro">Financeiro</option>
+                                    <option value="administrativo">Administrativo</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <!-- Descrição -->
+                            <div class="mb-4">
+                                <label for="description" class="form-label fw-semibold">
+                                    <i class="bi bi-chat-text text-success me-2" aria-hidden="true"></i>
+                                    Descrição Detalhada <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="description" rows="6" required 
+                                          aria-describedby="descriptionHelp"
+                                          aria-label="Descreva detalhadamente sua reclamação"
+                                          placeholder="Descreva o ocorrido com o máximo de detalhes possível..."></textarea>
+                                <div id="descriptionHelp" class="form-text">Mínimo 20 caracteres</div>
+                            </div>
+
+                            <!-- Botões de Ação -->
+                            <div class="d-grid gap-3 d-md-flex justify-content-md-between">
+                                <button type="button" class="btn btn-outline-secondary btn-lg px-4" 
+                                        onclick="speak('Limpando formulário')">
+                                    <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
+                                    Limpar
+                                </button>
+                                <button type="submit" class="btn btn-success btn-lg px-5" 
+                                        onclick="speak('Enviando reclamação')">
+                                    <i class="bi bi-send-check me-2" aria-hidden="true"></i>
+                                    Enviar Reclamação
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="bi bi-shield-check me-2"></i>Portal Petrobras</h5>
+                    <p class="mb-0 opacity-75">Comprometidos com a acessibilidade e inclusão digital para todos.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 opacity-75">
+                        Suporte: <a href="#" class="text-white text-decoration-none">petrobras@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>
