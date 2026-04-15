@@ -1,0 +1,44 @@
+/* Customização de cores e transições */
+:root {
+    --primary-color: #0d6efd;
+    --hover-color: #0b5ed7;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilização dos Cards */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Inputs focados */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25 row rgba(13, 110, 253, 0.25);
+}
+
+/* Botão com efeito de escala ao passar o mouse */
+.btn-primary {
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: var(--hover-color);
+}
+
+/* Utilitário para o formulário de contato */
+textarea {
+    resize: none; /* Impede que o usuário quebre o layout redimensionando o box */
+}
+
+/* Media Query para ajustes finos em telas muito pequenas */
+@media (max-width: 576px) {
+    .card-body {
+        padding: 2rem !important;
+    }
+}
