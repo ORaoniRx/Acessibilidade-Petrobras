@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/demandas.css">
+
+    <link rel="stylesheet" href="./css/darkmode.css">
 </head>
 <body class="bg-light">
 
@@ -46,10 +48,10 @@
                             João Silva
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><a class="dropdown-item" href="perfil.html">Meu Perfil</a></li>
+                            <li><a class="dropdown-item" href="config.html">Configurações</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <li><a class="dropdown-item" onclick="sair()">Sair</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,7 +66,7 @@
                 <p class="lead text-muted">Acompanhe em tempo real o andamento das solicitações enviadas pela empresa.</p>
             </div>
             <div class="col-md-4 text-md-end">
-                <button class="btn btn-success btn-lg shadow" onclick="speak('Redirecionando para nova reclamação'); window.location.href='home.html'">
+                <button class="btn btn-success btn-lg shadow" onclick="speak('Redirecionando para nova reclamação'); window.location.href='home.html'; alert('Parte em desenvolvimento. Será para usuários com maior cargo.')">
                     <i class="bi bi-plus-circle me-2"></i>Nova Demanda
                 </button>
             </div>
@@ -135,6 +137,8 @@
             <p class="opacity-75 mb-0">Portal de Demandas Petrobras • Sistema Acessível</p>
         </div>
     </footer>
+
+    <script src="js/main.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/demandas/talkback.js"></script>

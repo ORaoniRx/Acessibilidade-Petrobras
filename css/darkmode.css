@@ -1,0 +1,26 @@
+/* css/darkmode.css */
+
+/* Estilos para o Modo Escuro Global */
+body.dark-mode { 
+    background-color: #121212 !important; 
+    color: #f8f9fa !important; 
+}
+
+body.dark-mode .card { 
+    background-color: #1e1e1e !important; 
+    color: #f8f9fa !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode p, body.dark-mode label, body.dark-mode h1, body.dark-mode h2 {
+    color: #f8f9fa !important;
+}
+
+body.dark-mode .text-muted {
+    color: #bbbbbb !important;
+}
+
+/* Estilos para Daltonismo Global */
+body.daltonismo-mode { 
+    filter: saturate(1.5) contrast(1.2); 
+}

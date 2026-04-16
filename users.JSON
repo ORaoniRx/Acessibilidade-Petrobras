@@ -1,0 +1,19 @@
+{
+  "usuarios": [
+    {
+      "user": "joao.silva",
+      "senha": "123",
+      "nome": "João Silva"
+    },
+    {
+      "user": "admin",
+      "senha": "adminpassword",
+      "nome": "Administrador"
+    },
+    {
+       "user": "teste",
+       "senha": "123",
+       "nome": "Raoni"
+    }
+  ]
+}

@@ -18,7 +18,11 @@
     <script src="./js/home/talkback.js"></script>
     <script src="./js/home/form.js"></script>
 
+
+    <script src="./js/home/perfil.js"></script>
     <link rel="stylesheet" href="css/home.css">
+
+    <link rel="stylesheet" href="./css/darkmode.css">
 </head>
 <body class="bg-light">
     <!-- Skip to main content -->
@@ -63,13 +67,13 @@
                            aria-label="Menu do usuário João Silva"
                            onclick="speak('Menu do usuário')">
                             <i class="bi bi-person-circle me-1" aria-hidden="true"></i>
-                            João Silva
+                            Usuário
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                            <li><a class="dropdown-item" href="perfil.html">Meu Perfil</a></li>
+                            <li><a class="dropdown-item" href="config.html">Configurações</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <li><a class="dropdown-item" onclick="sair()">Sair</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -90,15 +94,15 @@
                         Atendimento RH Petrobras
                     </h1>
                     <p id="hero-description" class="lead text-muted fs-4">
-                        Registre sua <strong>reclamação</strong>, demanda ou solicitação de forma 
-                        <strong>rápida e acessível</strong>.
+                        Registre sua <strong>reclamação</strong> de forma 
+                        rápida e acessível.
                     </p>
                     <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4">
                         <button class="btn btn-success btn-lg px-4" onclick="speak('Foco na área de reclamação')">
                             <i class="bi bi-chat-dots me-2" aria-hidden="true"></i>
                             Reclamação
                         </button>
-                        <button class="btn btn-outline-warning btn-lg px-4" onclick="speak('Abrindo histórico')">
+                        <button class="btn btn-outline-warning btn-lg px-4" onclick="speak('Abrindo histórico'); alert('Em desenvolvimento, aba de histórico de demandas, obrigado pela paciência.')">
                             <i class="bi bi-clock-history me-2" aria-hidden="true"></i>
                             Meu Histórico
                         </button>
@@ -163,7 +167,7 @@
                             <!-- Botões de Ação -->
                             <div class="d-grid gap-3 d-md-flex justify-content-md-between">
                                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" 
-                                        onclick="speak('Limpando formulário')">
+                                        onclick="speak('Limpando formulário'); limparFormulario()">
                                     <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
                                     Limpar
                                 </button>
@@ -198,6 +202,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/main.js"></script>
 
 
 
